@@ -1,0 +1,7 @@
+/*
+ * Popular post or most comment for blogger
+ *
+ * by Abu Farhan (www.abu-farhan.com)
+ */
+
+var postTitlear=new Array();var postUrlar=new Array();var postCommentar=new Array();var totalpost;document.write("<ul>");function showrecentposts(j){var a=j.feed.entry.length;totalpost=a;for(var f=0;f<a;f++){var h=j.feed.entry[f];var c=h.title.$t;var b;var g;if(f==j.feed.entry.length){break}for(var d=0;d<h.link.length;d++){if(h.link[d].rel=="alternate"){g=h.link[d].href;break}}for(var d=0;d<h.link.length;d++){if(h.link[d].rel=="replies"&&h.link[d].type=="text/html"){b=h.link[d].title.split(" ")[0];break}}c=(aBold)?"<b>"+c+"</b>":c;postTitlear.push(c);postUrlar.push(g);postCommentar.push(b)}sortPosts();for(var f=0;f<maxshowresult;f++){var e='<li><a href="'+postUrlar[f]+'" class="recent-link">'+postTitlear[f]+" ("+postCommentar[f]+" comments)</a>";document.write(e)}}function sortPosts(){function c(d,f){var e=postTitlear[d];postTitlear[d]=postTitlear[f];postTitlear[f]=e;var e=postUrlar[d];postUrlar[d]=postUrlar[f];postUrlar[f]=e;var e=postCommentar[d];postCommentar[d]=postCommentar[f];postCommentar[f]=e}for(var b=0;b<postTitlear.length-1;b++){for(var a=b+1;a<postTitlear.length;a++){if(parseInt(postCommentar[b])<parseInt(postCommentar[a])){c(b,a)}}}}document.write('<script src="'+home_page+"feeds/posts/default?max-results="+numposts+'&orderby=published&alt=json-in-script&callback=showrecentposts"><\/script>');document.write('</br><a href="http://www.abu-farhan.com" style="font-size: 8px; text-decoration:none; color: #616469;">Widget by Abu Farhan</a>');
