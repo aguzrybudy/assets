@@ -1,7 +1,7 @@
 //<![CDATA[
 jQuery(document).ready(function () {emoticonx({
 emoRange:"#comments p, div.emoWrap",
-putEmoAbove:"#commentsHolder",
+putEmoAbove:"iframe#comment-editor",
 topText:"Klik gambar emo untuk melihat kodenya",
 emoMessage:"Untuk menyisipkan emoticon, beri satu spasi sebelum memasukkan kode"
 })
